@@ -4,8 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-ENV DATABASE_URL="file:./dev.db"
-RUN npx prisma generate
+RUN echo 'DATABASE_URL="file:./dev.db"' > .env && npx prisma generate
 RUN npm run build
 
 # Production stage
