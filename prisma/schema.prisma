@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Product {
+  // ── Primárny kľúč (UUID) ─────────────────────────────────────────
+  id                String    @id @default(uuid())
+
+  // ── Unikátny kód z pipeline (= názov priečinka s textúrami) ──────
+  // Príklady: "A065MIB", "Nelissen_ALMA_WV_65", "Caprice_Baccara DF"
+  // UNIQUE constraint zabraňuje duplicitám pri opakovanom seede.
+  code              String    @unique
+
+  // ── Základné katalógové polia ────────────────────────────────────
+  name              String                        // "Ashpark Smoked"
+  manufacturer      String    @default("")        // "S.Anselmo", "Nelissen"
+  articleCode       String    @default("")        // "A065ASB", "NEHVB02308-730H"
+
+  // ── Fyzické vlastnosti ───────────────────────────────────────────
+  formatLabel       String    @default("")        // "UK", "WV65", "NF9"
+  formatConfigId    String?
+  formatConfig      FormatConfig? @relation(fields: [formatConfigId], references: [id])
+  dimensions        String    @default("")        // "215x65 mm"
+  bricksPerM2       String    @default("")        // "60"
+  structure         String?                       // "Rustikálna" | null
+
+  // ── Cena ─────────────────────────────────────────────────────────
+  exactPrice            Float?                        // 126.94 | null
+  priceLevelId          String?                       // FK na PriceLevelConfig
+  isManualPriceOverride Boolean   @default(false)     // Manuálny override cenovej úrovne
+  priceLevelConfig      PriceLevelConfig? @relation(fields: [priceLevelId], references: [id])
+
+  // ── Farby z AI analýzy ───────────────────────────────────────────
+  // SQLite nemá natívny JSON/Array typ → serializujeme ako String
+  dominantnaFarba   String    @default("")        // "Béžová / Piesková"
+  colors            String    @default("[]")      // JSON.stringify(string[])
+  colorBreakdown    String    @default("{}")      // JSON.stringify(Record<string,number>)
+  analyzedImages    Int       @default(0)         // počet spracovaných .webp súborov
+  svetlostIndex     Float     @default(0)         // priemerná svetlosť 0–255
+
+  // ── Voliteľné metadáta ───────────────────────────────────────────
+  productType       String?
+  object            String?
+
+  // ── Stav produktu ───────────────────────────────────
+  // true = aktívny (viditelný v konfigurátore), false = skrytý / archivovaný
+  isActive          Boolean   @default(true)
+
+  // ── Relácia na textúry (1:N) ────────────────────────────────────
+  textures          Texture[]
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  // Indexy pre filtrovanie v UI
+  @@index([manufacturer])
+  @@index([dominantnaFarba])
+  @@index([priceLevelId])
+  @@index([formatConfigId])
+  @@index([isActive])
+}
+
+model FormatConfig {
+  id              String    @id @default(uuid())
+  name            String    @unique
+  width           Float
+  height          Float
+  thickness       Float?
+  allowedPatterns String    @default("[]")
+
+  products  Product[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model PatternConfig {
+  id        String    @id @default(uuid())
+  name      String
+  code      String    @unique
+  isActive  Boolean   @default(true)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model PriceLevelConfig {
+  id        String    @id @default(uuid())
+  name      String    // napr. "€ = do 49€/m²"
+  minPrice  Float
+  maxPrice  Float
+  currency  String    @default("EUR")
+
+  products  Product[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Texture {
+  id          String   @id @default(uuid())
+  productId   String
+  url         String   // URL odkaz na S3 / CDN alebo lokálna cesta
+  type        String   // napr. "Zone B"
+  width       Int      @default(0)
+  height      Int      @default(0)
+  sizeBytes   Int      @default(0)
+
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([productId])
+  @@index([type])
+}
+
+
+model Lead {
+  id          String   @id @default(uuid())
+  firstName   String
+  lastName    String
+  email       String
+  phone       String?
+  company     String?
+  city        String?
+  zipCode     String?
+  note        String?
+  configData  String
+  utmData     String?
+  leadType    String   @default("TEXTURE_DOWNLOAD")
+  gdprConsent Boolean  @default(true)
+  isRead      Boolean  @default(false)
+  isArchived  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  startedAt    DateTime @default(now())
+  lastActiveAt DateTime @default(now())
+  isBounce     Boolean  @default(true)
+  events       TelemetryEvent[]
+}
+
+model TelemetryEvent {
+  id         String   @id @default(uuid())
+  sessionId  String
+  session    Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  eventType  String   // napr. VIEW, CLICK, DOWNLOAD
+  eventData  String   // JSON obsahujúci dáta (napr. názov vybranej tehly/škáry/väzby)
+  createdAt  DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([eventType])
+}
+
+model User {
+  id                 String    @id @default(uuid())
+  email              String    @unique
+  passwordHash       String
+  name               String
+  role               String
+  permissions        String    @default("[]") // JSON string of permissions
+  resetToken         String?
+  resetTokenExpires  DateTime?
+  lastLoginAt        DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+model EmailTemplate {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  name      String
+  subject   String
+  bodyHtml  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SystemSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

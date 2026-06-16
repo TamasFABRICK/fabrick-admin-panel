@@ -1,0 +1,1689 @@
+{
+  "users": [
+    {
+      "id": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282",
+      "email": "admin@fabrick.sk",
+      "passwordHash": "$2b$12$placeholder-hash-admin123",
+      "name": "FABRICK Admin",
+      "role": "super_admin",
+      "createdAt": "2026-04-28T14:31:44.796Z",
+      "updatedAt": "2026-06-15T09:17:14.866Z",
+      "lastLoginAt": "2026-06-15T09:17:14.864Z"
+    },
+    {
+      "id": "20b4cdb0-d734-4858-a3f4-1faba5606d11",
+      "email": "viewer@fabrick.sk",
+      "passwordHash": "$2b$12$placeholder-hash-viewer123",
+      "name": "Sales Viewer",
+      "role": "viewer",
+      "createdAt": "2026-04-28T14:31:44.796Z",
+      "updatedAt": "2026-05-31T07:47:33.017Z",
+      "lastLoginAt": "2026-05-31T07:47:33.017Z"
+    }
+  ],
+  "products": [
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "cervená",
+      "manufacturer": "Wienerberger",
+      "structure": "rustikálna",
+      "priceLevel": "premium",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+      "name": "Rustikalná cervená",
+      "category": "tehla",
+      "description": "Rucne tvarovaná lícová tehla s rustikálnym povrchom a hlbokou cervenou farbou. Ideálna pre externé fasády rodinných domov.",
+      "format": {
+        "width": 250,
+        "height": 65,
+        "depth": 120
+      },
+      "imageUrl": "/textures/rustikal-cervena.jpg",
+      "status": "active",
+      "tags": [
+        "rustikal",
+        "cervena",
+        "exterier",
+        "licova"
+      ],
+      "createdAt": "2026-04-30T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "sedá",
+      "manufacturer": "Tondach",
+      "structure": "hladká",
+      "priceLevel": "standard",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+      "name": "Moderná sedá",
+      "category": "tehla",
+      "description": "Hladká lícová tehla v neutrálnom sivom odtieni. Perfektná pre moderné minimalistické stavby a loftové interiéry.",
+      "format": {
+        "width": 290,
+        "height": 90,
+        "depth": 140
+      },
+      "imageUrl": "/textures/moderna-seda.jpg",
+      "status": "active",
+      "tags": [
+        "moderni",
+        "seda",
+        "minimalizmus",
+        "loft"
+      ],
+      "createdAt": "2026-05-01T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "biela",
+      "manufacturer": "Röben",
+      "structure": "antik",
+      "priceLevel": "premium",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+      "name": "Antická biela",
+      "category": "tehla",
+      "description": "Tehla s antickým opracovaním v krémovo-bielej farbe. Vytvára vzdusný a elegantný dojem v interiéroch aj exteriéroch.",
+      "format": {
+        "width": 250,
+        "height": 65,
+        "depth": 120
+      },
+      "imageUrl": "/textures/antik-biela.jpg",
+      "status": "active",
+      "tags": [
+        "antik",
+        "biela",
+        "kremova",
+        "elegantna"
+      ],
+      "createdAt": "2026-05-02T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "hnedá",
+      "manufacturer": "Wienerberger",
+      "structure": "rustikálna",
+      "priceLevel": "economy",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "fade480f-f1dd-473c-96b2-8eadd8c732f7",
+      "name": "Prírodná hnedá",
+      "category": "tehla",
+      "description": "Tehla v teplej hnedej farbe s prírodnou textúrou. Vhodná pre vidiecke a tradicné stavby.",
+      "format": {
+        "width": 250,
+        "height": 65,
+        "depth": 120
+      },
+      "imageUrl": "/textures/prirodna-hneda.jpg",
+      "status": "active",
+      "tags": [
+        "prirodna",
+        "hneda",
+        "tradicna",
+        "vidiecka"
+      ],
+      "createdAt": "2026-05-03T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "cierna",
+      "manufacturer": "Tondach",
+      "structure": "hladká",
+      "priceLevel": "luxury",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "dd074d3f-cdaa-4ec0-9b40-688545d2ff3f",
+      "name": "Loft cierna",
+      "category": "tehla",
+      "description": "Exkluzívna cierna lícová tehla pre odvázne interiérové a exteriérové projekty. Industriálny charakter.",
+      "format": {
+        "width": 290,
+        "height": 90,
+        "depth": 140
+      },
+      "imageUrl": "/textures/loft-cierna.jpg",
+      "status": "active",
+      "tags": [
+        "loft",
+        "cierna",
+        "industrial",
+        "premium"
+      ],
+      "createdAt": "2026-05-04T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "biela",
+      "manufacturer": "Baumit",
+      "structure": null,
+      "priceLevel": "economy",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+      "name": "Biela 10mm",
+      "category": "skara",
+      "description": "Klasická biela skára sírky 10mm. Nadcasová a univerzálna volba pre väcsinu murovacích kombinácií.",
+      "format": {
+        "width": 10,
+        "height": 0,
+        "depth": 0
+      },
+      "imageUrl": "/textures/skara-biela-10.jpg",
+      "status": "active",
+      "tags": [
+        "biela",
+        "10mm",
+        "klasika",
+        "univerzalna"
+      ],
+      "createdAt": "2026-04-30T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "antracitová",
+      "manufacturer": "Baumit",
+      "structure": null,
+      "priceLevel": "economy",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "cdc62f72-8947-4227-9407-7f31681c0f55",
+      "name": "Antracitová 10mm",
+      "category": "skara",
+      "description": "Tmavá antracitová skára 10mm pre moderné fasády. Vynikajúco kontrastuje so svetlými tehlami.",
+      "format": {
+        "width": 10,
+        "height": 0,
+        "depth": 0
+      },
+      "imageUrl": "/textures/skara-antracit-10.jpg",
+      "status": "active",
+      "tags": [
+        "antracit",
+        "tmava",
+        "10mm",
+        "kontrast"
+      ],
+      "createdAt": "2026-05-01T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": "sedá",
+      "manufacturer": "Mapei",
+      "structure": null,
+      "priceLevel": "standard",
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "c7dcdae0-6eea-4ddb-a2fc-37ab44f77f6d",
+      "name": "Svetlo sedá 12mm",
+      "category": "skara",
+      "description": "Svetlo sedá skára so sirsím profilom 12mm. Zvyraznuje horizontálne línie muriva.",
+      "format": {
+        "width": 12,
+        "height": 0,
+        "depth": 0
+      },
+      "imageUrl": "/textures/skara-svetloseda-12.jpg",
+      "status": "active",
+      "tags": [
+        "svetloseda",
+        "12mm",
+        "horizontalna"
+      ],
+      "createdAt": "2026-05-02T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": null,
+      "manufacturer": null,
+      "structure": null,
+      "priceLevel": null,
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "3d36958a-ce55-46c8-976c-1e9534badadb",
+      "name": "Divoká väzba",
+      "category": "vazba",
+      "description": "Nepravidelná väzba s rozmanitým usporiadaním tehál. Vytvára dynamický a originálny vzhlad fasády.",
+      "format": {
+        "width": 0,
+        "height": 0,
+        "depth": 0
+      },
+      "imageUrl": "/textures/vazba-divoka.jpg",
+      "status": "active",
+      "tags": [
+        "divoka",
+        "nepravidelna",
+        "dynamicka",
+        "originalna"
+      ],
+      "createdAt": "2026-04-30T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": null,
+      "manufacturer": null,
+      "structure": null,
+      "priceLevel": null,
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "88c21781-e034-4530-94e2-1484d4c1ce45",
+      "name": "Flámska väzba",
+      "category": "vazba",
+      "description": "Klasická flámska väzba s pravidelným striedaním behúnov a väzákov. Esteticky aj konstrukcne overená.",
+      "format": {
+        "width": 0,
+        "height": 0,
+        "depth": 0
+      },
+      "imageUrl": "/textures/vazba-flamska.jpg",
+      "status": "active",
+      "tags": [
+        "flamska",
+        "klasika",
+        "pravidelna"
+      ],
+      "createdAt": "2026-05-01T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "thumbnailUrl": null,
+      "textureUrls": [],
+      "color": null,
+      "manufacturer": null,
+      "structure": null,
+      "priceLevel": null,
+      "adminNotes": null,
+      "configuratorId": null,
+      "lastSyncedAt": null,
+      "id": "74a73c0d-9bfb-4208-a5f3-e1e6716cd044",
+      "name": "Behúnová väzba",
+      "category": "vazba",
+      "description": "Najjednoduchsia väzba pozostávajúca výlucne z behúnov. Minimalistická a rýchla na realizáciu.",
+      "format": {
+        "width": 0,
+        "height": 0,
+        "depth": 0
+      },
+      "imageUrl": "/textures/vazba-behunova.jpg",
+      "status": "active",
+      "tags": [
+        "behunova",
+        "minimalizmus",
+        "jednoducha"
+      ],
+      "createdAt": "2026-05-02T14:31:44.796Z",
+      "updatedAt": "2026-05-28T14:31:44.796Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "84fdfd7b-8c6a-4c3d-a836-1310a8c0cb91",
+      "name": "Ing. Peter Novák",
+      "email": "peter.novak@archstudio.sk",
+      "phone": "+421901234567",
+      "company": "ArchStudio s.r.o.",
+      "source": "visualizer",
+      "combination": {
+        "brickId": "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "mortarId": "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "bondId": "3d36958a-ce55-46c8-976c-1e9534badadb"
+      },
+      "metadata": {
+        "campaign": "google-ads"
+      },
+      "gdprConsent": true,
+      "createdAt": "2026-04-30T14:31:44.796Z",
+      "updatedAt": "2026-04-30T14:31:44.796Z"
+    },
+    {
+      "id": "2f9eed53-ae84-4a17-be4a-80e723f274df",
+      "name": "Mgr. Jana Kováčová",
+      "email": "jana.kovacova@design.sk",
+      "phone": "+421902345678",
+      "company": "Design Studio BA",
+      "source": "visualizer",
+      "combination": {
+        "brickId": "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "mortarId": "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "bondId": "3d36958a-ce55-46c8-976c-1e9534badadb"
+      },
+      "metadata": {
+        "campaign": "organic"
+      },
+      "gdprConsent": true,
+      "createdAt": "2026-05-03T14:31:44.796Z",
+      "updatedAt": "2026-05-03T14:31:44.796Z"
+    },
+    {
+      "id": "7d123083-91e8-4b3b-9951-08bbd700458b",
+      "name": "Bc. Tomáš Horváth",
+      "email": "tomas.horvath@buildco.sk",
+      "phone": "+421903456789",
+      "company": "BuildCo SK",
+      "source": "visualizer",
+      "combination": {
+        "brickId": "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "mortarId": "cdc62f72-8947-4227-9407-7f31681c0f55",
+        "bondId": "3d36958a-ce55-46c8-976c-1e9534badadb"
+      },
+      "metadata": {},
+      "gdprConsent": true,
+      "createdAt": "2026-05-06T14:31:44.796Z",
+      "updatedAt": "2026-05-06T14:31:44.796Z"
+    },
+    {
+      "id": "48d7d252-954f-4cea-92e1-d6176e759473",
+      "name": "Ing. arch. Mária Lechnerová",
+      "email": "m.lechnerova@atelier.sk",
+      "phone": null,
+      "company": "Atelier ML s.r.o.",
+      "source": "visualizer",
+      "combination": {
+        "brickId": "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "mortarId": "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "bondId": "88c21781-e034-4530-94e2-1484d4c1ce45"
+      },
+      "metadata": {
+        "referrer": "archiweb.sk"
+      },
+      "gdprConsent": true,
+      "createdAt": "2026-05-08T14:31:44.796Z",
+      "updatedAt": "2026-05-08T14:31:44.796Z"
+    },
+    {
+      "id": "5c8c076f-b05d-46d9-891d-29c1f085e972",
+      "name": "Martin Krajčí",
+      "email": "martin.krajci@gmail.com",
+      "phone": "+421905678901",
+      "company": null,
+      "source": "visualizer",
+      "combination": {
+        "brickId": "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "mortarId": "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "bondId": null
+      },
+      "metadata": {},
+      "gdprConsent": true,
+      "createdAt": "2026-05-10T14:31:44.796Z",
+      "updatedAt": "2026-05-10T14:31:44.796Z"
+    },
+    {
+      "id": "85507396-f1c4-4988-a223-a8423fa6fdb0",
+      "name": "Ing. Lucia Benková",
+      "email": "l.benkova@studio-b.sk",
+      "phone": "+421906789012",
+      "company": "Studio B",
+      "source": "webhook",
+      "combination": {
+        "brickId": "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "mortarId": "cdc62f72-8947-4227-9407-7f31681c0f55",
+        "bondId": null
+      },
+      "metadata": {
+        "source_form": "contact_page"
+      },
+      "gdprConsent": true,
+      "createdAt": "2026-05-13T14:31:44.796Z",
+      "updatedAt": "2026-05-13T14:31:44.796Z"
+    },
+    {
+      "id": "7eef1af3-1c73-40e0-bd4b-81f3169e37e9",
+      "name": "Ján Šimko",
+      "email": "jan.simko@simkoarchitects.sk",
+      "phone": null,
+      "company": "Šimko Architects",
+      "source": "visualizer",
+      "combination": {
+        "brickId": "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "mortarId": "c7dcdae0-6eea-4ddb-a2fc-37ab44f77f6d",
+        "bondId": null
+      },
+      "metadata": {},
+      "gdprConsent": true,
+      "createdAt": "2026-05-15T14:31:44.796Z",
+      "updatedAt": "2026-05-15T14:31:44.796Z"
+    },
+    {
+      "id": "fe18796f-ccca-4c08-a5d3-11851bc7178d",
+      "name": "Eva Molnárová",
+      "email": "eva.molnarova@molnar.sk",
+      "phone": "+421908901234",
+      "company": null,
+      "source": "visualizer",
+      "combination": {
+        "brickId": "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "mortarId": "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "bondId": null
+      },
+      "metadata": {},
+      "gdprConsent": true,
+      "createdAt": "2026-05-18T14:31:44.796Z",
+      "updatedAt": "2026-05-18T14:31:44.796Z"
+    },
+    {
+      "id": "735c4460-52ad-4165-875c-e902f156f73e",
+      "name": "Radoslav Takáč",
+      "email": "r.takac@takac-build.sk",
+      "phone": "+421909012345",
+      "company": "Takáč Build s.r.o.",
+      "source": "visualizer",
+      "combination": {
+        "brickId": "fade480f-f1dd-473c-96b2-8eadd8c732f7",
+        "mortarId": "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "bondId": "88c21781-e034-4530-94e2-1484d4c1ce45"
+      },
+      "metadata": {},
+      "gdprConsent": true,
+      "createdAt": "2026-05-21T14:31:44.796Z",
+      "updatedAt": "2026-05-21T14:31:44.796Z"
+    },
+    {
+      "id": "3600ea9f-9970-4ae9-81b5-2ef5a23ed9f3",
+      "name": "Zuzana Farkašová",
+      "email": "z.farkasova@fdesign.sk",
+      "phone": null,
+      "company": "F Design Studio",
+      "source": "n8n",
+      "combination": {
+        "brickId": "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "mortarId": null,
+        "bondId": null
+      },
+      "metadata": {
+        "n8n_workflow": "contact_form_v2"
+      },
+      "gdprConsent": true,
+      "createdAt": "2026-05-25T14:31:44.796Z",
+      "updatedAt": "2026-05-25T14:31:44.796Z"
+    },
+    {
+      "id": "856c0eeb-f619-406a-9b04-8e43c22e2449",
+      "name": "Peter Baláž",
+      "email": "p.balaz@balaz-studio.sk",
+      "phone": "+421910123456",
+      "company": "Baláž Studio",
+      "source": "n8n",
+      "combination": {
+        "brickId": "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "mortarId": null,
+        "bondId": null
+      },
+      "metadata": {
+        "n8n_workflow": "brick_enquiry"
+      },
+      "gdprConsent": true,
+      "createdAt": "2026-05-27T14:31:44.796Z",
+      "updatedAt": "2026-05-27T14:31:44.796Z"
+    },
+    {
+      "name": "a a",
+      "email": "a@a.sk",
+      "phone": null,
+      "company": null,
+      "gdprConsent": true,
+      "source": "visualizer",
+      "combination": null,
+      "metadata": {
+        "captchaToken": "XXXX.DUMMY.TOKEN.XXXX",
+        "submittedAt": "2026-06-07T21:17:49.031Z",
+        "formType": "texture_download"
+      },
+      "id": "4fc56be4-5f58-4e54-97d4-cc2e13a52326",
+      "createdAt": "2026-06-07T21:17:49.156Z",
+      "updatedAt": "2026-06-07T21:17:49.157Z"
+    },
+    {
+      "name": "a a",
+      "email": "a@a.sk",
+      "phone": null,
+      "company": null,
+      "gdprConsent": true,
+      "source": "visualizer",
+      "combination": null,
+      "metadata": {
+        "captchaToken": "XXXX.DUMMY.TOKEN.XXXX",
+        "submittedAt": "2026-06-07T21:20:06.737Z",
+        "formType": "texture_download"
+      },
+      "id": "7bed790d-36d6-4d52-b805-cb23c64559a1",
+      "createdAt": "2026-06-07T21:20:06.906Z",
+      "updatedAt": "2026-06-07T21:20:06.906Z"
+    },
+    {
+      "name": "a a",
+      "email": "a@a.sk",
+      "phone": null,
+      "company": null,
+      "gdprConsent": true,
+      "source": "visualizer",
+      "combination": null,
+      "metadata": {
+        "captchaToken": "XXXX.DUMMY.TOKEN.XXXX",
+        "submittedAt": "2026-06-07T21:33:59.622Z",
+        "formType": "texture_download"
+      },
+      "id": "22ccbc6b-0b14-4037-8396-ff2b0de5142f",
+      "createdAt": "2026-06-07T21:33:59.676Z",
+      "updatedAt": "2026-06-07T21:33:59.676Z"
+    },
+    {
+      "name": "a a",
+      "email": "a@a.sk",
+      "phone": null,
+      "company": null,
+      "gdprConsent": true,
+      "source": "visualizer",
+      "combination": {
+        "brickId": "Ares WV 65",
+        "mortarId": "Sivá",
+        "bondId": "military"
+      },
+      "metadata": {
+        "captchaToken": "XXXX.DUMMY.TOKEN.XXXX",
+        "submittedAt": "2026-06-08T14:19:44.902Z",
+        "formType": "texture_download"
+      },
+      "id": "658f69cb-2bb0-4d17-81f6-8f9de59c17dc",
+      "createdAt": "2026-06-08T14:19:45.042Z",
+      "updatedAt": "2026-06-08T14:19:45.042Z"
+    },
+    {
+      "name": "a a",
+      "email": "a@a.sk",
+      "phone": null,
+      "company": null,
+      "gdprConsent": true,
+      "source": "visualizer",
+      "combination": {
+        "brickId": "San Francisco",
+        "mortarId": "Sivá",
+        "bondId": "basketweave_modular"
+      },
+      "metadata": {
+        "captchaToken": "XXXX.DUMMY.TOKEN.XXXX",
+        "submittedAt": "2026-06-08T15:04:21.231Z",
+        "formType": "texture_download"
+      },
+      "id": "0b88ed90-d3ef-4729-b73b-43bfc5aaeb42",
+      "createdAt": "2026-06-08T15:04:21.530Z",
+      "updatedAt": "2026-06-08T15:04:21.530Z"
+    },
+    {
+      "name": "a a",
+      "email": "a@a.sk",
+      "phone": null,
+      "company": null,
+      "gdprConsent": true,
+      "source": "visualizer",
+      "combination": {
+        "brickId": "Metallic WV 65",
+        "mortarId": "Sivá",
+        "bondId": "soldier"
+      },
+      "metadata": {
+        "captchaToken": "XXXX.DUMMY.TOKEN.XXXX",
+        "submittedAt": "2026-06-08T15:39:33.222Z",
+        "formType": "texture_download"
+      },
+      "id": "9b5dfc1a-841c-4f58-91db-40ecb69e927f",
+      "createdAt": "2026-06-08T15:39:33.269Z",
+      "updatedAt": "2026-06-08T15:39:33.269Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "5fa3fafb-d39d-4c3d-b9e0-66a67f437bb2",
+      "fingerprint": "fp-001",
+      "startedAt": "2026-04-30T14:31:44.796Z",
+      "endedAt": "2026-04-30T14:36:56.796Z",
+      "durationSeconds": 312,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-04-30T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-04-30T14:34:20.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-04-30T14:36:25.596Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-04-30T14:36:56.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-04-30T14:36:56.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "7905489b-2d4e-4e78-8a2f-3c44dc1773e9",
+      "fingerprint": "fp-002",
+      "startedAt": "2026-05-01T14:31:44.796Z",
+      "endedAt": "2026-05-01T14:35:49.796Z",
+      "durationSeconds": 245,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-01T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-01T14:33:47.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-01T14:35:25.296Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-01T14:35:49.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-01T14:35:49.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "bade0ee9-6f14-4868-a1e7-00b782cb95e3",
+      "fingerprint": "fp-003",
+      "startedAt": "2026-05-01T14:31:44.796Z",
+      "endedAt": "2026-05-01T14:34:53.796Z",
+      "durationSeconds": 189,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-01T12:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-01T12:33:19.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-01T12:34:34.896Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-01T12:34:53.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-01T12:34:53.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "69ecd1c8-a69b-44c7-ade5-e6f0441b3f5c",
+      "fingerprint": "fp-004",
+      "startedAt": "2026-05-03T14:31:44.796Z",
+      "endedAt": "2026-05-03T14:38:47.796Z",
+      "durationSeconds": 423,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-03T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-03T14:35:16.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-03T14:38:05.496Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-03T14:38:47.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-03T14:38:47.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "cdc62f72-8947-4227-9407-7f31681c0f55",
+        "88c21781-e034-4530-94e2-1484d4c1ce45"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "48faf080-051b-41dd-bb6d-e576548562fc",
+      "fingerprint": "fp-005",
+      "startedAt": "2026-05-04T14:31:44.796Z",
+      "endedAt": "2026-05-04T14:34:20.796Z",
+      "durationSeconds": 156,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-04T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-04T14:33:02.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-04T14:34:05.196Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-04T14:34:20.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-04T14:34:20.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "39c19c2c-d721-43bf-abad-2c3c7b5c97ff",
+      "fingerprint": "fp-006",
+      "startedAt": "2026-05-05T14:31:44.796Z",
+      "endedAt": "2026-05-05T14:33:12.796Z",
+      "durationSeconds": 88,
+      "abandoned": true,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-05T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-05T14:32:29.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "cdc62f72-8947-4227-9407-7f31681c0f55"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "d1496bea-865c-4cc4-affa-df38cfaa6dac",
+      "fingerprint": "fp-007",
+      "startedAt": "2026-05-06T14:31:44.796Z",
+      "endedAt": "2026-05-06T14:37:18.796Z",
+      "durationSeconds": 334,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-06T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-06T14:34:31.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-06T14:36:45.396Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-06T14:37:18.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-06T14:37:18.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "e005c746-24bc-400c-8f26-6341be3faa62",
+      "fingerprint": "fp-008",
+      "startedAt": "2026-05-08T14:31:44.796Z",
+      "endedAt": "2026-05-08T14:35:15.796Z",
+      "durationSeconds": 211,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-08T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-08T14:33:30.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-08T14:34:54.696Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-08T14:35:15.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-08T14:35:15.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "d598be24-bd04-4aed-8c5f-3271bd083c1b",
+      "fingerprint": "fp-009",
+      "startedAt": "2026-05-09T14:31:44.796Z",
+      "endedAt": "2026-05-09T14:32:51.796Z",
+      "durationSeconds": 67,
+      "abandoned": true,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-09T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-09T14:32:29.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "fade480f-f1dd-473c-96b2-8eadd8c732f7",
+        "c7dcdae0-6eea-4ddb-a2fc-37ab44f77f6d"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "7784b6de-18ee-4f06-91b2-e060c9b3b1ea",
+      "fingerprint": "fp-010",
+      "startedAt": "2026-05-10T14:31:44.796Z",
+      "endedAt": "2026-05-10T14:36:34.796Z",
+      "durationSeconds": 290,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-10T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-10T14:34:09.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-10T14:36:05.796Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-10T14:36:34.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-10T14:36:34.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "cdc62f72-8947-4227-9407-7f31681c0f55",
+        "88c21781-e034-4530-94e2-1484d4c1ce45"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "46359886-0f65-4276-a21a-11c433205463",
+      "fingerprint": "fp-011",
+      "startedAt": "2026-05-11T14:31:44.796Z",
+      "endedAt": "2026-05-11T14:34:42.796Z",
+      "durationSeconds": 178,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-11T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-11T14:33:13.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-11T14:34:24.996Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-11T14:34:42.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-11T14:34:42.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "04b44eb8-27c5-4f65-abf1-e8951031f591",
+      "fingerprint": "fp-012",
+      "startedAt": "2026-05-12T14:31:44.796Z",
+      "endedAt": "2026-05-12T14:39:09.796Z",
+      "durationSeconds": 445,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-12T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-12T14:35:27.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-12T14:38:25.296Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-12T14:39:09.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-12T14:39:09.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "14a340cd-bcc6-4c31-b879-57b1865c044b",
+      "fingerprint": "fp-013",
+      "startedAt": "2026-05-14T14:31:44.796Z",
+      "endedAt": "2026-05-14T14:33:58.796Z",
+      "durationSeconds": 134,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-14T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-14T14:32:51.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-14T14:33:45.396Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-14T14:33:58.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-14T14:33:58.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "cdc62f72-8947-4227-9407-7f31681c0f55"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "049b6052-676b-44fb-9169-9f64e29007ac",
+      "fingerprint": "fp-014",
+      "startedAt": "2026-05-15T14:31:44.796Z",
+      "endedAt": "2026-05-15T14:32:36.796Z",
+      "durationSeconds": 52,
+      "abandoned": true,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-15T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-15T14:32:29.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "c7dcdae0-6eea-4ddb-a2fc-37ab44f77f6d"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "ea3b658a-7157-46eb-9e9b-cb1faec19e07",
+      "fingerprint": "fp-015",
+      "startedAt": "2026-05-16T14:31:44.796Z",
+      "endedAt": "2026-05-16T14:38:02.796Z",
+      "durationSeconds": 378,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-16T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-16T14:34:53.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-16T14:37:24.996Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-16T14:38:02.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-16T14:38:02.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "200c5cdd-3096-41f8-9dcf-4040fe151a54",
+      "fingerprint": "fp-016",
+      "startedAt": "2026-05-18T14:31:44.796Z",
+      "endedAt": "2026-05-18T14:35:27.796Z",
+      "durationSeconds": 223,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-18T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-18T14:33:36.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-18T14:35:05.496Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-18T14:35:27.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-18T14:35:27.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "ba37091d-4e95-4c97-979d-6fd42c5eee48",
+      "fingerprint": "fp-017",
+      "startedAt": "2026-05-19T14:31:44.796Z",
+      "endedAt": "2026-05-19T14:33:25.796Z",
+      "durationSeconds": 101,
+      "abandoned": true,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-19T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-19T14:32:29.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "fade480f-f1dd-473c-96b2-8eadd8c732f7",
+        "cdc62f72-8947-4227-9407-7f31681c0f55"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "ab6af8fd-53f6-4bcd-a7a3-056cc45e1c72",
+      "fingerprint": "fp-018",
+      "startedAt": "2026-05-20T14:31:44.796Z",
+      "endedAt": "2026-05-20T14:36:33.796Z",
+      "durationSeconds": 289,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-20T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-20T14:34:09.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-20T14:36:04.896Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-20T14:36:33.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-20T14:36:33.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "c7dcdae0-6eea-4ddb-a2fc-37ab44f77f6d",
+        "88c21781-e034-4530-94e2-1484d4c1ce45"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "939efb2e-74d7-4800-98b0-b2847ea0067c",
+      "fingerprint": "fp-019",
+      "startedAt": "2026-05-22T14:31:44.796Z",
+      "endedAt": "2026-05-22T14:34:31.796Z",
+      "durationSeconds": 167,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-22T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-22T14:33:08.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-22T14:34:15.096Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-22T14:34:31.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-22T14:34:31.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "73b10ba1-94d8-4ed5-939d-dc512492c1a8",
+      "fingerprint": "fp-020",
+      "startedAt": "2026-05-23T14:31:44.796Z",
+      "endedAt": "2026-05-23T14:38:36.796Z",
+      "durationSeconds": 412,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-23T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-23T14:35:10.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-23T14:37:55.596Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-23T14:38:36.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-23T14:38:36.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "1098f969-7569-4c8f-9fe4-9d192bc7e730",
+      "fingerprint": "fp-021",
+      "startedAt": "2026-05-24T14:31:44.796Z",
+      "endedAt": "2026-05-24T14:33:02.796Z",
+      "durationSeconds": 78,
+      "abandoned": true,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-24T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-24T14:32:29.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "cdc62f72-8947-4227-9407-7f31681c0f55"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "0a5b8e58-502e-4078-8b1c-db8eaa561b83",
+      "fingerprint": "fp-022",
+      "startedAt": "2026-05-25T14:31:44.796Z",
+      "endedAt": "2026-05-25T14:37:40.796Z",
+      "durationSeconds": 356,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-25T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-25T14:34:42.796Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-25T14:37:05.196Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-25T14:37:40.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-25T14:37:40.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "1a0bf9cd-434e-4a67-85f4-43c3cf0dae6b",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "88c21781-e034-4530-94e2-1484d4c1ce45"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "2816bd1a-e14b-4d44-89d2-10ebd17007c4",
+      "fingerprint": "fp-023",
+      "startedAt": "2026-05-26T14:31:44.796Z",
+      "endedAt": "2026-05-26T14:35:03.796Z",
+      "durationSeconds": 199,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-26T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-26T14:33:24.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-26T14:34:43.896Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-26T14:35:03.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-26T14:35:03.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "996b7aaa-a5a6-43c8-a665-fb662c3ea0f8",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "eb6f7c2f-8a8f-4533-8dce-dd377f06612f",
+      "fingerprint": "fp-024",
+      "startedAt": "2026-05-27T14:31:44.796Z",
+      "endedAt": "2026-05-27T14:33:12.796Z",
+      "durationSeconds": 88,
+      "abandoned": true,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-27T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-27T14:32:29.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "fade480f-f1dd-473c-96b2-8eadd8c732f7",
+        "c7dcdae0-6eea-4ddb-a2fc-37ab44f77f6d"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    {
+      "id": "a15882c6-d618-47e7-8a14-a39884dd7aa3",
+      "fingerprint": "fp-025",
+      "startedAt": "2026-05-28T14:31:44.796Z",
+      "endedAt": "2026-05-28T14:39:09.796Z",
+      "durationSeconds": 445,
+      "abandoned": false,
+      "events": [
+        {
+          "event": "session_start",
+          "timestamp": "2026-05-28T14:31:44.796Z",
+          "payload": {}
+        },
+        {
+          "event": "combination_saved",
+          "timestamp": "2026-05-28T14:35:27.296Z",
+          "payload": {}
+        },
+        {
+          "event": "texture_downloaded",
+          "timestamp": "2026-05-28T14:38:25.296Z",
+          "payload": {}
+        },
+        {
+          "event": "contact_submitted",
+          "timestamp": "2026-05-28T14:39:09.796Z",
+          "payload": {}
+        },
+        {
+          "event": "session_end",
+          "timestamp": "2026-05-28T14:39:09.796Z",
+          "payload": {}
+        }
+      ],
+      "viewedProducts": [
+        "51c7df1f-4b8e-4fe3-8a77-b665b845b7ab",
+        "c3fe9901-a6ed-4134-b9e9-1f73ef2a91a2",
+        "3d36958a-ce55-46c8-976c-1e9534badadb"
+      ],
+      "referrer": "https://fabrick.sk",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+  ],
+  "attributes": [
+    {
+      "id": "31379fc6-5f28-4af6-b2d4-7231fef22cc1",
+      "type": "manufacturer",
+      "label": "Feldhaus Klinker",
+      "meta": null,
+      "sortOrder": 7,
+      "active": true,
+      "createdAt": "2026-03-29T14:31:44.797Z",
+      "updatedAt": "2026-03-29T14:31:44.797Z",
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+    },
+    {
+      "type": "format",
+      "label": "DF14 - 240x52 mm",
+      "meta": null,
+      "sortOrder": 6,
+      "active": true,
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282",
+      "id": "683263a9-3acf-4854-af73-690a3fc89872",
+      "createdAt": "2026-06-14T06:33:21.145Z",
+      "updatedAt": "2026-06-14T06:33:21.145Z"
+    },
+    {
+      "type": "priceLevel",
+      "label": "€€€€€ = nad 200€/m²",
+      "meta": null,
+      "sortOrder": 2,
+      "active": true,
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282",
+      "id": "064f6b07-450e-48a2-b727-3c2de026d102",
+      "createdAt": "2026-06-14T07:09:44.725Z",
+      "updatedAt": "2026-06-14T07:09:44.725Z"
+    },
+    {
+      "type": "priceLevel",
+      "label": "€€€€€",
+      "meta": null,
+      "sortOrder": 3,
+      "active": true,
+      "createdBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282",
+      "id": "5d87324f-a59d-4097-b816-211b42d5aa76",
+      "createdAt": "2026-06-14T07:09:56.000Z",
+      "updatedAt": "2026-06-14T07:09:56.000Z"
+    }
+  ],
+  "marketingSettings": {
+    "gtmId": "GTM-TEST123",
+    "ga4Id": null,
+    "googleAdsId": null,
+    "metaPixelId": null,
+    "customHeadScripts": null,
+    "seoTitle": "FABRICK – Konfigurujte si fasádu na mieru",
+    "seoDescription": "Interaktívny konfigurátor lícových tehál. Vyberte si farbu, štruktúru a väzbu priamo online.",
+    "updatedAt": "2026-05-31T07:57:26.527Z",
+    "updatedBy": "0be0eb97-27bd-44a0-83c2-0fe78dcaa282"
+  }
+}
