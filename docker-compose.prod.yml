@@ -10,7 +10,8 @@ services:
     ports:
       - "3000:80"
     volumes:
-      - ./brick-generator/public/bricks:/usr/share/nginx/html/bricks
+      # Shared persistent volume – Frontend serves /bricks/* via Nginx
+      - bricks_data:/usr/share/nginx/html/bricks
 
   backend:
     build:
@@ -31,6 +32,16 @@ services:
       - NEXT_PUBLIC_TURNSTILE_SITE_KEY=${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
       - TURNSTILE_SECRET_KEY=${TURNSTILE_SECRET_KEY}
       - CORS_ORIGIN=${CORS_ORIGIN:-https://konfigurator.fabrick.sk}
+      # Bricks directory – points to the shared volume mount inside the container
+      - BRICKS_PUBLIC_DIR=/app/public/bricks
+      # Public URL prefix used to build texture preview URLs returned by the API
+      - BRICKS_SERVE_URL=${BRICKS_SERVE_URL:-https://konfigurator.fabrick.sk/bricks}
     volumes:
       - ./fabrick-admin-panel/dev.db:/app/dev.db
       - ./fabrick-admin-panel/public/uploads:/app/public/uploads
+      # Shared persistent volume – Backend reads/writes brick textures here
+      - bricks_data:/app/public/bricks
+
+# Named volume – persists across container rebuilds and is shared between services
+volumes:
+  bricks_data:
