@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./brick-generator
+      dockerfile: Dockerfile
+    container_name: fabrick_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    volumes:
+      - ./brick-generator/public/bricks:/usr/share/nginx/html/bricks
+
+  backend:
+    build:
+      context: ./fabrick-admin-panel
+      dockerfile: Dockerfile
+      args:
+        - CORS_ORIGIN=${CORS_ORIGIN:-https://konfigurator.fabrick.sk}
+    container_name: fabrick_backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - DATABASE_URL=${DATABASE_URL:-file:./dev.db}
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+      - NEXT_PUBLIC_TURNSTILE_SITE_KEY=${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+      - TURNSTILE_SECRET_KEY=${TURNSTILE_SECRET_KEY}
+      - CORS_ORIGIN=${CORS_ORIGIN:-https://konfigurator.fabrick.sk}
+    volumes:
+      - ./fabrick-admin-panel/dev.db:/app/dev.db
+      - ./fabrick-admin-panel/public/uploads:/app/public/uploads
