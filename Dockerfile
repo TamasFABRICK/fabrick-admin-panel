@@ -4,6 +4,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+ARG CORS_ORIGIN=https://konfigurator.fabrick.sk
+ENV CORS_ORIGIN=$CORS_ORIGIN
 RUN DATABASE_URL="file:./dev.db" npx prisma generate
 RUN npm run build
 

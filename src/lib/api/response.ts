@@ -41,7 +41,7 @@ export interface ApiError {
 // ─────────────────────────────────────────────────────────────
 
 const CORS_HEADERS: Record<string, string> = {
-  "Access-Control-Allow-Origin": process.env.CORS_ORIGIN ?? "*",
+  "Access-Control-Allow-Origin": process.env.CORS_ORIGIN ?? "https://konfigurator.fabrick.sk",
   "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Webhook-Secret",
 };
