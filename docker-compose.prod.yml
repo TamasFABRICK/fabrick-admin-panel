@@ -5,6 +5,8 @@ services:
     build:
       context: ./brick-generator
       dockerfile: Dockerfile
+      args:
+        - VITE_TURNSTILE_SITE_KEY=${VITE_TURNSTILE_SITE_KEY}
     container_name: fabrick_frontend
     restart: unless-stopped
     ports:
