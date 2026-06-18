@@ -160,10 +160,10 @@ export default function CRMPage() {
 
   return (
     <div className="space-y-6 relative">
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+      <div className="flex flex-col gap-4">
         <h1 className="text-2xl font-bold text-neutral-800">CRM Kontakty & Leady</h1>
         
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="text-sm text-neutral-500 font-medium">Od:</span>
             <input 
@@ -283,8 +283,8 @@ export default function CRMPage() {
 
       {/* Modal - Detail kontaktu */}
       {selectedLead && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-neutral-900/40 backdrop-blur-sm">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-lg flex flex-col max-h-[90vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-neutral-900/40 backdrop-blur-sm">
+          <div className="bg-white rounded-t-2xl sm:rounded-xl shadow-xl w-full sm:max-w-lg flex flex-col max-h-[95vh] sm:max-h-[90vh] overflow-hidden animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200">
             <div className="p-6 border-b border-neutral-100 flex justify-between items-center shrink-0">
               <h2 className="text-xl font-bold text-neutral-800">Detail Leadu</h2>
               <button 
