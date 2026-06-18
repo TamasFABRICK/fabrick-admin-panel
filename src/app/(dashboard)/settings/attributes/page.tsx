@@ -206,7 +206,7 @@ export default function AttributesSettingsPage() {
 
       {error && <div className="p-4 text-red-600 bg-red-50 rounded-lg">{error}</div>}
 
-      <div className="flex space-x-1 bg-white p-1 rounded-xl shadow-sm border border-neutral-200">
+      <div className="flex flex-nowrap overflow-x-auto no-scrollbar space-x-1 bg-white p-1 rounded-xl shadow-sm border border-neutral-200">
         {TAB_TYPES.map((tab) => (
           <button
             key={tab.key}
@@ -481,7 +481,7 @@ export default function AttributesSettingsPage() {
                       (activeTab === "priceLevels" && (!newItemMinPrice || !newItemMaxPrice || !newItemCurrency.trim())) ||
                       (activeTab === "formats" && (!newItemWidth || !newItemHeight))
                     } 
-                    className="flex-1 bg-primary hover:bg-primary-hover text-white"
+                    className="flex-1 bg-primary hover:bg-primary-hover text-white whitespace-nowrap"
                   >
                     {adding ? "Ukladám..." : (editingItem ? "Uložiť zmeny" : "Pridať")}
                   </Button>

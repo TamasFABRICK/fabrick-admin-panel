@@ -26,7 +26,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - DATABASE_URL=${DATABASE_URL:-file:./dev.db}
+      - DATABASE_URL=${DATABASE_URL:-file:/app/prisma/dev.db}
       - RESEND_API_KEY=${RESEND_API_KEY}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
       - TURNSTILE_SECRET_KEY=${TURNSTILE_SECRET_KEY}
@@ -36,11 +36,13 @@ services:
       # Public URL prefix used to build texture preview URLs returned by the API
       - BRICKS_SERVE_URL=${BRICKS_SERVE_URL:-https://konfigurator.fabrick.sk/bricks}
     volumes:
-      - ./fabrick-admin-panel/dev.db:/app/dev.db
+      # Named volume – SQLite DB persists across container rebuilds
+      - backend_db:/app/prisma
       - ./fabrick-admin-panel/public/uploads:/app/public/uploads
       # Shared persistent volume – Backend reads/writes brick textures here
       - bricks_data:/app/public/bricks
 
-# Named volume – persists across container rebuilds and is shared between services
+# Named volumes – persist across container rebuilds
 volumes:
   bricks_data:
+  backend_db:

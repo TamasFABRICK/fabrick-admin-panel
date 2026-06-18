@@ -111,7 +111,7 @@ export default function DashboardPage() {
       <div className="space-y-6 relative">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-neutral-800">Analytický Dashboard</h1>
-          <Button variant="danger" onClick={handleReset}>
+          <Button variant="danger" onClick={handleReset} className="whitespace-nowrap">
             Resetovať štatistiky
           </Button>
         </div>
