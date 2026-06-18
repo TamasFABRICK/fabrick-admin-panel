@@ -38,7 +38,7 @@ export async function GET(
 // ─────────────────────────────────────────────────────────────
 // PUT /api/products/[id]  – update product details
 // Accepts JSON body with new Prisma schema keys:
-//   name, dominantnaFarba, manufacturer, structure, priceLevelId, formatConfigId
+//   name, code, dominantnaFarba, manufacturer, structure, priceLevelId, formatConfigId
 // ─────────────────────────────────────────────────────────────
 export async function PUT(
   request: NextRequest,
@@ -65,6 +65,8 @@ export async function PUT(
     const data: Record<string, unknown> = {};
 
     if (body.name !== undefined)           data.name           = String(body.name).trim();
+    // code: must match the physical directory name on disk (case-sensitive)
+    if (body.code !== undefined)           data.code           = body.code === null || body.code === "" ? null : String(body.code).trim();
     if (body.dominantnaFarba !== undefined) data.dominantnaFarba = String(body.dominantnaFarba).trim();
     if (body.manufacturer !== undefined)    data.manufacturer    = String(body.manufacturer).trim();
     if (body.structure !== undefined)       data.structure       = body.structure !== "" ? String(body.structure).trim() : null;

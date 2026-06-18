@@ -92,6 +92,7 @@ export default function ProductsPage() {
   
   // Form State
   const [name, setName] = useState("");
+  const [code, setCode] = useState("");
   const [category, setCategory] = useState("tehla");
   const [color, setColor] = useState("");
   const [manufacturer, setManufacturer] = useState("");
@@ -290,6 +291,7 @@ export default function ProductsPage() {
   const resetForm = () => {
     setEditProductId(null);
     setName("");
+    setCode("");
     setCategory("tehla");
     setColor("");
     setManufacturer("");
@@ -322,6 +324,7 @@ export default function ProductsPage() {
     resetForm();
     setEditProductId(product.id);
     setName(product.name || "");
+    setCode(product.code || "");
     setCategory(product.productType || product.category || product.type || "tehla");
     // Farba: nový kľúč z Prisma je dominantnaFarba
     setColor(product.dominantnaFarba || product.color || "");
@@ -456,6 +459,7 @@ export default function ProductsPage() {
         // PUT: JSON payload s novými Prisma kľúčmi
         const payload = {
           name,
+          code: code || null,
           dominantnaFarba: color,
           manufacturer,
           structure: structure || null,
@@ -471,6 +475,7 @@ export default function ProductsPage() {
         // POST: multipart/form-data pre nový produkt
         step1Data = new FormData();
         step1Data.append("name", name);
+        if (code) step1Data.append("code", code);
         step1Data.append("category", category);
         if (color) step1Data.append("color", color);
         if (manufacturer) step1Data.append("manufacturer", manufacturer);
@@ -816,6 +821,22 @@ export default function ProductsPage() {
                       placeholder="Napr. Terca Rustica"
                       disabled={formLoading}
                     />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-1">
+                      Kód produktu (Názov priečinka)
+                    </label>
+                    <input 
+                      type="text"
+                      value={code}
+                      onChange={(e) => setCode(e.target.value)}
+                      className="w-full px-3 py-2 border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-mono text-sm"
+                      placeholder="napr. terca-rustica (presne zhodný s názvom priečinka na disku)"
+                      disabled={formLoading}
+                    />
+                    <p className="mt-1 text-xs text-neutral-400">
+                      ⚠️ Musí presne zodpovedať názvu fyzického priečinka na disku (case-sensitive). Používa sa na načítanie textúr a náhľadov.
+                    </p>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-neutral-700 mb-1">Kategória *</label>

@@ -159,6 +159,7 @@ export async function POST(request: NextRequest): Promise<Response> {
 
   // ── Extract text fields ───────────────────────────────────
   const name         = formData.get("name")         as string | null;
+  const code         = formData.get("code")         as string | null;
   const category     = formData.get("category")     as string | null;
   const description  = formData.get("description")  as string | null;
   const color        = formData.get("color")         as string | null;
@@ -241,6 +242,21 @@ export async function POST(request: NextRequest): Promise<Response> {
       },
       payload.sub
     );
+
+    // If the user specified a directory code, persist it to Prisma immediately.
+    // The Configurator assigns its own ID; we store our local code mapping separately.
+    if (isNonEmptyString(code) && product.id) {
+      try {
+        await prisma.product.update({
+          where: { id: product.id },
+          data:  { code: String(code).trim() },
+        });
+      } catch (prismaErr) {
+        // Non-fatal: log the issue but still return the created product.
+        // The code can be set later via the Edit modal.
+        console.warn(`[POST /api/products] Could not persist code to Prisma for product ${product.id}:`, prismaErr);
+      }
+    }
 
     return successResponse(product, 201);
   } catch (err) {
