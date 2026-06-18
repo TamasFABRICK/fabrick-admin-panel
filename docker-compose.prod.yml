@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   frontend:
     build:
@@ -31,7 +29,6 @@ services:
       - DATABASE_URL=${DATABASE_URL:-file:./dev.db}
       - RESEND_API_KEY=${RESEND_API_KEY}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-      - NEXT_PUBLIC_TURNSTILE_SITE_KEY=${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
       - TURNSTILE_SECRET_KEY=${TURNSTILE_SECRET_KEY}
       - CORS_ORIGIN=${CORS_ORIGIN:-https://konfigurator.fabrick.sk}
       # Bricks directory – points to the shared volume mount inside the container
