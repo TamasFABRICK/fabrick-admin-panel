@@ -183,6 +183,16 @@ model EmailTemplate {
   updatedAt DateTime @updatedAt
 }
 
+model PdfTemplate {
+  id         String   @id @default(uuid())
+  code       String   @unique
+  name       String
+  bodyHtml   String
+  cssStyles  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
 model SystemSetting {
   id        String   @id @default(uuid())
   key       String   @unique

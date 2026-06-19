@@ -12,6 +12,7 @@ const navItems = [
   { name: "Marketing a SEO", href: "/settings/marketing", requiredPermission: "marketing:read" },
   { name: "Nastavenia (Atribúty)", href: "/settings/attributes", requiredPermission: "settings:read" },
   { name: "E-mailové šablóny", href: "/settings/emails", requiredPermission: "email:read" },
+  { name: "PDF šablóny", href: "/settings/pdf", requiredPermission: "email:read" },
   { name: "GDPR Text", href: "/settings/gdpr", requiredPermission: "settings:read" },
   { name: "Zmena hesla", href: "/settings/profile", requiredPermission: "password:read" },
   { name: "Prístupové práva", href: "/users", requiredPermission: "users:read" },
