@@ -21,6 +21,8 @@ export interface PdfGeneratePayload {
   jointColor?: string;
   jointThickness?: string;
   jointProfile?: string;
+  /** Cesta ku grafike väzby */
+  patternUrl?: string;
   /** Cesta k miniatúre tehly */
   brickThumbUrl?: string;
   /** base64 data URI loga FABRICK SK (ak nie, použije sa prázdny string) */
@@ -156,6 +158,32 @@ export async function POST(request: NextRequest): Promise<Response> {
     }
   }
 
+  // ── 3.6 Načítanie a konverzia grafiky väzby (pattern) ─────────────────────
+  let patternBase64 = "";
+  if (body.patternUrl) {
+    try {
+      const cleanPath = body.patternUrl.replace(/^\//, "");
+      const filePath = path.join(process.cwd(), "..", "brick-generator", "public", cleanPath);
+      const ext = path.extname(cleanPath).replace(".", "") || "svg";
+      const mimeType = ext === "svg" ? "image/svg+xml" : (ext === "png" ? "image/png" : "image/jpeg");
+      
+      if (fs.existsSync(filePath)) {
+        const imageBuffer = fs.readFileSync(filePath);
+        patternBase64 = `data:${mimeType};base64,${imageBuffer.toString("base64")}`;
+      } else {
+        const origin = process.env.CONFIGURATOR_ORIGIN || "http://localhost:3000";
+        const url = `${origin}/${cleanPath}`;
+        const res = await fetch(url);
+        if (res.ok) {
+           const buffer = await res.arrayBuffer();
+           patternBase64 = `data:${mimeType};base64,${Buffer.from(buffer).toString("base64")}`;
+        }
+      }
+    } catch (err) {
+      console.error("[PDF Generate] Failed to load pattern image:", err);
+    }
+  }
+
   const vars: Record<string, string> = {
     brickName:      body.brickName ?? "",
     brickFormat:    body.brickFormat ?? "",
@@ -177,6 +205,10 @@ export async function POST(request: NextRequest): Promise<Response> {
     brickThumbImg: makeImgTag(
       brickThumbBase64,
       "max-width:100%; max-height:400px; object-fit:contain; border-radius:8px;"
+    ),
+    patternImg: makeImgTag(
+      patternBase64,
+      "width:100%; max-height:200px; object-fit:contain;"
     ),
     fabrickLogoImg: makeImgTag(
       body.fabrickLogoBase64 ?? "",
