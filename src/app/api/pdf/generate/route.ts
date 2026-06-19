@@ -105,7 +105,7 @@ export async function POST(request: NextRequest): Promise<Response> {
   }
 
   // ── 2. Načítanie šablóny z DB ──────────────────────────────────────────────
-  const templateCode = body.templateCode ?? "SALES_QUOTE_DEFAULT";
+  const templateCode = body.templateCode ?? "CONFIGURATION_OVERVIEW";
   let template: { bodyHtml: string; cssStyles: string | null } | null = null;
 
   try {

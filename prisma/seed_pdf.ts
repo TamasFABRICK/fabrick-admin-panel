@@ -184,17 +184,17 @@ body {
 
 async function main() {
   await prisma.pdfTemplate.upsert({
-    where: { code: 'SALES_QUOTE_DEFAULT' },
+    where: { code: 'CONFIGURATION_OVERVIEW' },
     update: {},
     create: {
-      code: 'SALES_QUOTE_DEFAULT',
-      name: 'Predajná cenová ponuka (default)',
+      code: 'CONFIGURATION_OVERVIEW',
+      name: 'Prehľad konfigurácie',
       bodyHtml: DEFAULT_HTML,
       cssStyles: DEFAULT_CSS,
     },
   });
 
-  console.log('✅ PDF šablóna SALES_QUOTE_DEFAULT upserted.');
+  console.log('✅ PDF šablóna CONFIGURATION_OVERVIEW upserted.');
 }
 
 main()
