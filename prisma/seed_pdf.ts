@@ -7,97 +7,61 @@ const DEFAULT_HTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cenová ponuka – FABRICK SK</title>
+  <title>Konfigurácia – FABRICK SK</title>
 </head>
 <body>
   <div class="page">
-
     <!-- HEADER -->
     <header class="header">
       <div class="header-logo">
         {{fabrickLogoImg}}
       </div>
       <div class="header-meta">
-        <p class="header-title">Cenová ponuka</p>
+        <p class="header-title">Konfigurácia</p>
         <p class="header-date">Dátum: {{date}}</p>
       </div>
     </header>
 
-    <!-- HERO – náhľad tehly -->
-    <section class="hero">
-      <div class="hero-preview">
-        {{brickPreviewImg}}
+    <!-- CONTENT -->
+    <div class="content-wrapper">
+      <div class="left-col">
+        <div class="hero-preview">
+          {{brickThumbImg}}
+        </div>
       </div>
-      <div class="hero-info">
-        <h1 class="product-name">{{brickName}}</h1>
-        <p class="product-manufacturer">{{manufacturer}}</p>
-        <p class="product-code">Kód: {{articleCode}}</p>
-        <div class="price-badge">{{price}} € / m²</div>
+      <div class="right-col">
+        <section class="section">
+          <h2 class="section-title">Údaje o tehle</h2>
+          <table class="params-table">
+            <tbody>
+              <tr><td class="param-label">Výrobca</td><td class="param-value">{{manufacturer}}</td></tr>
+              <tr><td class="param-label">Názov</td><td class="param-value">{{brickName}}</td></tr>
+              <tr><td class="param-label">Formát</td><td class="param-value">{{brickFormat}}</td></tr>
+              <tr><td class="param-label">Rozmery</td><td class="param-value">{{dimensions}}</td></tr>
+              <tr><td class="param-label">Kód produktu</td><td class="param-value">{{articleCode}}</td></tr>
+            </tbody>
+          </table>
+        </section>
+        
+        <section class="section" style="margin-top: 30px;">
+          <h2 class="section-title">Údaje o konfigurácii</h2>
+          <table class="params-table">
+            <tbody>
+              <tr><td class="param-label">Väzba</td><td class="param-value">{{patternName}}</td></tr>
+              <tr><td class="param-label">Farba škáry</td><td class="param-value">{{jointColor}}</td></tr>
+              <tr><td class="param-label">Profil škáry</td><td class="param-value">{{jointProfile}}</td></tr>
+              <tr><td class="param-label">Hrúbka škáry</td><td class="param-value">{{jointThickness}}</td></tr>
+            </tbody>
+          </table>
+        </section>
       </div>
-    </section>
-
-    <!-- PARAMETRE -->
-    <section class="section">
-      <h2 class="section-title">Technické parametre</h2>
-      <table class="params-table">
-        <tbody>
-          <tr>
-            <td class="param-label">Formát tehly</td>
-            <td class="param-value">{{brickFormat}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">Rozmery</td>
-            <td class="param-value">{{dimensions}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">Výrobca</td>
-            <td class="param-value">{{manufacturer}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">Väzba</td>
-            <td class="param-value">{{patternName}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">Farba škáry</td>
-            <td class="param-value">{{jointColor}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- KONTAKTNÉ ÚDAJE -->
-    <section class="section">
-      <h2 class="section-title">Kontaktné údaje zákazníka</h2>
-      <table class="params-table">
-        <tbody>
-          <tr>
-            <td class="param-label">Meno a priezvisko</td>
-            <td class="param-value">{{firstName}} {{lastName}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">E-mail</td>
-            <td class="param-value">{{email}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">Telefón</td>
-            <td class="param-value">{{phone}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">Spoločnosť</td>
-            <td class="param-value">{{company}}</td>
-          </tr>
-          <tr>
-            <td class="param-label">Mesto</td>
-            <td class="param-value">{{city}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>FABRICK SK s.r.o. | www.fabrick.sk | info@fabrick.sk</p>
-      <p>Táto cenová ponuka bola vygenerovaná automaticky z konfigurátora FABRICK SK.</p>
+      <p class="footer-tagline">FABRICK SK – Už 30 rokov váš partner pre dokonalé tehlové fasády.</p>
+      <p>Sídlo: Okočská 1677/5, 93201 Veľký Meder, Slovensko | Showroom: Studená 4/B, 821 04 Bratislava, Slovensko</p>
+      <p>tamas@fabrick.sk | www.fabrick.sk</p>
     </footer>
   </div>
 </body>
@@ -117,10 +81,9 @@ body {
 .page {
   width: 210mm;
   min-height: 297mm;
-  padding: 12mm 14mm;
+  padding: 15mm 15mm;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 /* ── Header ────────────────────────────────────────── */
@@ -129,93 +92,95 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid #8b1a1a;
-  padding-bottom: 12px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
 }
-.header-logo img { max-height: 48px; width: auto; }
+.header-logo img { max-height: 50px; width: auto; }
 .header-meta { text-align: right; }
 .header-title {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   color: #8b1a1a;
-  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-.header-date { font-size: 11px; color: #666; margin-top: 2px; }
+.header-date { font-size: 12px; color: #666; margin-top: 4px; }
+
+/* ── Layout ────────────────────────────────────────── */
+.content-wrapper {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+}
+.left-col {
+  width: 50%;
+}
+.right-col {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
 
 /* ── Hero ──────────────────────────────────────────── */
-.hero {
-  display: flex;
-  gap: 20px;
-  background: #fafafa;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 16px;
-}
 .hero-preview {
-  flex-shrink: 0;
-  width: 180px;
-  height: 140px;
-  background: #f0f0f0;
-  border-radius: 6px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 .hero-preview img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-info { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
-.product-name { font-size: 22px; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
-.product-manufacturer { font-size: 13px; color: #666; }
-.product-code { font-size: 11px; color: #999; font-family: monospace; }
-.price-badge {
-  display: inline-block;
-  margin-top: 8px;
-  background: #8b1a1a;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 6px 16px;
-  border-radius: 6px;
+  display: block;
 }
 
 /* ── Sections ──────────────────────────────────────── */
-.section { display: flex; flex-direction: column; gap: 10px; }
+.section { display: flex; flex-direction: column; gap: 12px; }
 .section-title {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: #8b1a1a;
   border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
 }
 
 /* ── Params table ──────────────────────────────────── */
 .params-table { width: 100%; border-collapse: collapse; }
-.params-table tr:nth-child(even) { background: #f9f9f9; }
+.params-table tr:nth-child(even) { background: #fafafa; }
 .param-label {
-  width: 40%;
-  padding: 7px 10px;
-  font-size: 12px;
-  font-weight: 600;
+  width: 45%;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 700;
   color: #555;
+  border-bottom: 1px solid #eee;
 }
 .param-value {
-  padding: 7px 10px;
-  font-size: 13px;
+  padding: 10px 12px;
+  font-size: 14px;
   color: #1a1a1a;
+  border-bottom: 1px solid #eee;
+  font-weight: 500;
 }
 
 /* ── Footer ────────────────────────────────────────── */
 .footer {
   margin-top: auto;
-  border-top: 1px solid #e5e5e5;
-  padding-top: 10px;
-  font-size: 10px;
-  color: #aaa;
+  border-top: 2px solid #8b1a1a;
+  padding-top: 15px;
+  font-size: 11px;
+  color: #666;
   text-align: center;
-  line-height: 1.6;
-}`;
+  line-height: 1.8;
+}
+.footer-tagline {
+  font-weight: 800;
+  color: #8b1a1a;
+  font-size: 12px;
+  margin-bottom: 5px;
+} `;
 
 async function main() {
   await prisma.pdfTemplate.upsert({

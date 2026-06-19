@@ -1,5 +1,7 @@
 import { type NextRequest } from "next/server";
 import puppeteer from "puppeteer-core";
+import fs from "fs";
+import path from "path";
 import prisma from "@/lib/prisma";
 import { corsPreflightResponse, validationErrorResponse, errorResponse } from "@/lib/api/response";
 
@@ -17,8 +19,10 @@ export interface PdfGeneratePayload {
   // ── Konfigurácia ───────────────────────────────────────────────────────────
   patternName?: string;
   jointColor?: string;
-  /** base64 data URI alebo URL obrázka tehly z canvasu konfigurátora */
-  brickPreviewBase64?: string;
+  jointThickness?: string;
+  jointProfile?: string;
+  /** Cesta k miniatúre tehly */
+  brickThumbUrl?: string;
   /** base64 data URI loga FABRICK SK (ak nie, použije sa prázdny string) */
   fabrickLogoBase64?: string;
   // ── Kontakt zákazníka ──────────────────────────────────────────────────────
@@ -127,6 +131,31 @@ export async function POST(request: NextRequest): Promise<Response> {
     year: "numeric",
   });
 
+  // ── 3.5 Načítanie a konverzia thumbnailu tehly ────────────────────────────
+  let brickThumbBase64 = "";
+  if (body.brickThumbUrl) {
+    try {
+      const cleanPath = body.brickThumbUrl.replace(/^\//, "");
+      const filePath = path.join(process.cwd(), "..", "brick-generator", "public", cleanPath);
+      const ext = path.extname(cleanPath).replace(".", "") || "jpeg";
+      
+      if (fs.existsSync(filePath)) {
+        const imageBuffer = fs.readFileSync(filePath);
+        brickThumbBase64 = `data:image/${ext};base64,${imageBuffer.toString("base64")}`;
+      } else {
+        const origin = process.env.CONFIGURATOR_ORIGIN || "http://localhost:3000";
+        const url = `${origin}/${cleanPath}`;
+        const res = await fetch(url);
+        if (res.ok) {
+           const buffer = await res.arrayBuffer();
+           brickThumbBase64 = `data:image/${ext};base64,${Buffer.from(buffer).toString("base64")}`;
+        }
+      }
+    } catch (err) {
+      console.error("[PDF Generate] Failed to load brick thumbnail:", err);
+    }
+  }
+
   const vars: Record<string, string> = {
     brickName:      body.brickName ?? "",
     brickFormat:    body.brickFormat ?? "",
@@ -136,6 +165,8 @@ export async function POST(request: NextRequest): Promise<Response> {
     price:          body.price ?? "",
     patternName:    body.patternName ?? "",
     jointColor:     body.jointColor ?? "",
+    jointThickness: body.jointThickness ?? "",
+    jointProfile:   body.jointProfile ?? "",
     firstName:      body.firstName ?? "",
     lastName:       body.lastName ?? "",
     email:          body.email ?? "",
@@ -143,9 +174,9 @@ export async function POST(request: NextRequest): Promise<Response> {
     company:        body.company ?? "",
     city:           body.city ?? "",
     date:           now,
-    brickPreviewImg: makeImgTag(
-      body.brickPreviewBase64 ?? "",
-      "max-width:100%; max-height:140px; object-fit:cover; border-radius:4px;"
+    brickThumbImg: makeImgTag(
+      brickThumbBase64,
+      "max-width:100%; max-height:400px; object-fit:contain; border-radius:8px;"
     ),
     fabrickLogoImg: makeImgTag(
       body.fabrickLogoBase64 ?? "",

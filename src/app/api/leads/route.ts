@@ -108,6 +108,7 @@ export async function POST(request: NextRequest): Promise<Response> {
   const configData   = raw.configData as string | undefined;
   const utmData      = raw.utmData as string | undefined;
   const brickImageUrl = raw.brickImageUrl as string | undefined;
+  const leadType     = raw.leadType as string | undefined;
 
   // ── Validation ───────────────────────────────────────────────
   if (!firstName || !firstName.trim()) {
@@ -164,7 +165,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         configData: configData || "{}",
         utmData: utmData || null,
         gdprConsent: true,
-        leadType: "TEXTURE_DOWNLOAD",
+        leadType: leadType || "TEXTURE_DOWNLOAD",
       }
     });
 
@@ -231,11 +232,13 @@ export async function POST(request: NextRequest): Promise<Response> {
         const adminEmails = eligibleUsers.map(u => u.email).filter(Boolean);
         const toEmails = adminEmails.length > 0 ? adminEmails : (process.env.ADMIN_EMAIL || 'admin@fabrick.sk');
 
+        const customerTemplateCode = lead.leadType === 'PDF_DOWNLOAD' ? 'PDF_DOWNLOAD_DEFAULT' : 'TEXTURE_DOWNLOAD_DEFAULT';
+
         // Fetch templates
         const templates = await prisma.emailTemplate.findMany({
-          where: { code: { in: ['CUSTOMER_CONFIRMATION', 'ADMIN_NOTIFICATION'] } }
+          where: { code: { in: [customerTemplateCode, 'ADMIN_NOTIFICATION'] } }
         });
-        const customerTpl = templates.find(t => t.code === 'CUSTOMER_CONFIRMATION');
+        const customerTpl = templates.find(t => t.code === customerTemplateCode);
         const adminTpl = templates.find(t => t.code === 'ADMIN_NOTIFICATION');
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -308,12 +311,12 @@ export async function POST(request: NextRequest): Promise<Response> {
           attachments: attachments.length > 0 ? attachments : undefined
         });
 
-        const customerSubject = parseTpl(customerTpl?.subject, 'FABRICK SK - Vaša 4K textúra je pripravená');
+        const customerSubject = parseTpl(customerTpl?.subject, lead.leadType === 'PDF_DOWNLOAD' ? 'FABRICK SK - Vaše PDF je pripravené' : 'FABRICK SK - Vaša 4K textúra je pripravená');
         const customerHtml = parseTpl(customerTpl?.bodyHtml, `
        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
          <p style="font-size: 14px; margin: 0;"><strong>Dobrý deň {{firstName}},</strong></p>
          <br/>
-         <p>dokonalý projekt začína správnym výberom. Ďakujeme Vám za stiahnutie 4K textúry našich lícových tehál. Vaša textúra bola úspešne vygenerovaná a nájdete ju v prílohe.</p>
+         <p>dokonalý projekt začína správnym výberom. Ďakujeme Vám za ${lead.leadType === 'PDF_DOWNLOAD' ? 'stiahnutie PDF konfigurácie' : 'stiahnutie 4K textúry našich lícových tehál'}. Váš dokument bol úspešne vygenerovaný a nájdete ho v prehliadači.</p>
          <p><strong>Zhrnutie Vašej konfigurácie:</strong></p>
          {{configHtml}}
          <p style="font-size: 13px; color: #666; font-style: italic; margin: 5px 0 20px 0;">📎 Náhľad vybranej tehly nájdete v prílohe tohto e-mailu.</p>

@@ -3,15 +3,33 @@ const prisma = new PrismaClient();
 
 async function main() {
   await prisma.emailTemplate.upsert({
-    where: { code: 'CUSTOMER_CONFIRMATION' },
+    where: { code: 'TEXTURE_DOWNLOAD_DEFAULT' },
     update: {},
     create: {
-      code: 'CUSTOMER_CONFIRMATION',
-      name: 'Potvrdenie zákazníkovi',
+      code: 'TEXTURE_DOWNLOAD_DEFAULT',
+      name: 'Potvrdenie zákazníkovi (Textúra)',
       subject: 'FABRICK SK - Vaša 4K textúra je pripravená',
       bodyHtml: `<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
   <h2>Dobrý deň, {{firstName}},</h2>
-  <p>ďakujeme za Váš záujem o produkty FABRICK SK. Vaša 4K textúra bola úspešne vygenerovaná.</p>
+  <p>ďakujeme za Váš záujem o produkty FABRICK SK. Vaša 4K textúra bola úspešne vygenerovaná a nájdete ju v prílohe.</p>
+  {{configHtml}}
+  <p>Naše obchodné oddelenie sa Vám čoskoro ozve s ďalšími informáciami.</p>
+  <br />
+  <p>S pozdravom,<br/><strong>Tím FABRICK SK</strong></p>
+</div>`
+    }
+  });
+
+  await prisma.emailTemplate.upsert({
+    where: { code: 'PDF_DOWNLOAD_DEFAULT' },
+    update: {},
+    create: {
+      code: 'PDF_DOWNLOAD_DEFAULT',
+      name: 'Potvrdenie zákazníkovi (PDF)',
+      subject: 'FABRICK SK - Vaša PDF konfigurácia je pripravená',
+      bodyHtml: `<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2>Dobrý deň, {{firstName}},</h2>
+  <p>ďakujeme za Váš záujem o produkty FABRICK SK. Vaša PDF konfigurácia bola úspešne vygenerovaná.</p>
   {{configHtml}}
   <p>Naše obchodné oddelenie sa Vám čoskoro ozve s ďalšími informáciami.</p>
   <br />
