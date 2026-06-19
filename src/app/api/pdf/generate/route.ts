@@ -21,8 +21,8 @@ export interface PdfGeneratePayload {
   jointColor?: string;
   jointThickness?: string;
   jointProfile?: string;
-  /** Absolútna URL k obrázku/SVG väzby */
-  patternUrl?: string;
+  /** base64 reprezentácia obrázku väzby (generovaná na frontende) */
+  patternBase64?: string;
   /** Cesta k miniatúre tehly */
   brickThumbUrl?: string;
   /** base64 data URI loga FABRICK SK (ak nie, použije sa prázdny string) */
@@ -150,7 +150,6 @@ export async function POST(request: NextRequest): Promise<Response> {
 
   // ── 3.5 Načítanie obrázkov z absolútnych URL ──────────────────────────────
   const brickThumbBase64 = await fetchImageAsBase64(body.brickThumbUrl, "image/webp");
-  const patternBase64 = await fetchImageAsBase64(body.patternUrl, "image/svg+xml");
 
   const vars: Record<string, string> = {
     brickName:      body.brickName ?? "",
@@ -171,7 +170,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     city:           body.city ?? "",
     date:           now,
     brickThumbImg:  brickThumbBase64,
-    patternImg:     patternBase64,
+    patternImg:     body.patternBase64 ?? "",
     fabrickLogoImg: body.fabrickLogoBase64 ?? "",
   };
 
