@@ -89,7 +89,14 @@ export default function PdfTemplatesPage() {
     setLoading(true);
     try {
       const res = await fetchApi<PdfTemplate[]>("/api/templates/pdf");
-      const data = res.data || [];
+      const data = res.data;
+
+      if (!data || (Array.isArray(data) && data.length === 0)) {
+        setTemplates([]);
+        setSelectedTemplate(null);
+        return;
+      }
+
       setTemplates(data);
       if (data.length > 0) {
         handleSelectTemplate(data[0]);
@@ -97,6 +104,8 @@ export default function PdfTemplatesPage() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Nepodarilo sa načítať PDF šablóny";
       setError(msg);
+      setTemplates([]);
+      setSelectedTemplate(null);
     } finally {
       setLoading(false);
     }
