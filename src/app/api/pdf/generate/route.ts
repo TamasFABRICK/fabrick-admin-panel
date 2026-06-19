@@ -21,8 +21,8 @@ export interface PdfGeneratePayload {
   jointColor?: string;
   jointThickness?: string;
   jointProfile?: string;
-  /** base64 výrezu plátna (namiesto patternUrl) */
-  patternBase64?: string;
+  /** Absolútna URL k obrázku/SVG väzby */
+  patternUrl?: string;
   /** Cesta k miniatúre tehly */
   brickThumbUrl?: string;
   /** base64 data URI loga FABRICK SK (ak nie, použije sa prázdny string) */
@@ -69,6 +69,28 @@ function injectVariables(template: string, vars: Record<string, string>): string
   return template.replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g, (_, key) => {
     return vars[key] ?? "";
   });
+}
+
+/** 
+ * Stiahne obrázok z absolútnej URL a vráti ho ako Base64 data URI.
+ * Ak zlyhá (napr. 404), vráti prázdny reťazec a do konzoly vypíše varovanie.
+ */
+async function fetchImageAsBase64(url: string | undefined, fallbackMime = "image/png"): Promise<string> {
+  if (!url) return "";
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn(`[PDF Generate] Failed to fetch image: ${url} (Status: ${res.status})`);
+      return "";
+    }
+    const contentType = res.headers.get("content-type");
+    const mimeType = contentType && contentType.startsWith("image/") ? contentType : fallbackMime;
+    const buffer = await res.arrayBuffer();
+    return `data:${mimeType};base64,${Buffer.from(buffer).toString("base64")}`;
+  } catch (err) {
+    console.warn(`[PDF Generate] Error fetching image ${url}:`, err);
+    return "";
+  }
 }
 
 // ─── Route handlers ───────────────────────────────────────────────────────────
@@ -126,30 +148,9 @@ export async function POST(request: NextRequest): Promise<Response> {
     year: "numeric",
   });
 
-  // ── 3.5 Načítanie a konverzia thumbnailu tehly ────────────────────────────
-  let brickThumbBase64 = "";
-  if (body.brickThumbUrl) {
-    try {
-      const cleanPath = body.brickThumbUrl.replace(/^\//, "");
-      const filePath = path.join(process.cwd(), "..", "brick-generator", "public", cleanPath);
-      const ext = path.extname(cleanPath).replace(".", "") || "jpeg";
-      
-      if (fs.existsSync(filePath)) {
-        const imageBuffer = fs.readFileSync(filePath);
-        brickThumbBase64 = `data:image/${ext};base64,${imageBuffer.toString("base64")}`;
-      } else {
-        const origin = process.env.CONFIGURATOR_ORIGIN || "http://localhost:3000";
-        const url = `${origin}/${cleanPath}`;
-        const res = await fetch(url);
-        if (res.ok) {
-           const buffer = await res.arrayBuffer();
-           brickThumbBase64 = `data:image/${ext};base64,${Buffer.from(buffer).toString("base64")}`;
-        }
-      }
-    } catch (err) {
-      console.error("[PDF Generate] Failed to load brick thumbnail:", err);
-    }
-  }
+  // ── 3.5 Načítanie obrázkov z absolútnych URL ──────────────────────────────
+  const brickThumbBase64 = await fetchImageAsBase64(body.brickThumbUrl, "image/webp");
+  const patternBase64 = await fetchImageAsBase64(body.patternUrl, "image/svg+xml");
 
   const vars: Record<string, string> = {
     brickName:      body.brickName ?? "",
@@ -170,7 +171,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     city:           body.city ?? "",
     date:           now,
     brickThumbImg:  brickThumbBase64,
-    patternImg:     body.patternBase64 ?? "",
+    patternImg:     patternBase64,
     fabrickLogoImg: body.fabrickLogoBase64 ?? "",
   };
 
