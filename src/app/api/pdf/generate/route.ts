@@ -21,8 +21,8 @@ export interface PdfGeneratePayload {
   jointColor?: string;
   jointThickness?: string;
   jointProfile?: string;
-  /** Identifikátor väzby (napr. 'stretcher') */
-  patternCode?: string;
+  /** Base64 zachytené z frontend 3D canvasu */
+  patternBase64?: string;
   /** Cesta k miniatúre tehly */
   brickThumbUrl?: string;
   /** base64 data URI loga FABRICK SK (ak nie, použije sa prázdny string) */
@@ -151,21 +151,8 @@ export async function POST(request: NextRequest): Promise<Response> {
   // ── 3.5 Načítanie obrázkov z absolútnych URL ──────────────────────────────
   const brickThumbBase64 = await fetchImageAsBase64(body.brickThumbUrl, "image/webp");
 
-  // ── 3.6 Načítanie lokálnej ikony väzby z FS ───────────────────────────────
-  let patternBase64 = "";
-  if (body.patternCode) {
-    try {
-      const bondPath = path.join(process.cwd(), "public", "bonds", `${body.patternCode}.svg`);
-      if (fs.existsSync(bondPath)) {
-        const svgBuffer = fs.readFileSync(bondPath);
-        patternBase64 = `data:image/svg+xml;base64,${svgBuffer.toString("base64")}`;
-      } else {
-        console.warn(`[PDF Generate] Bond icon not found: ${bondPath}`);
-      }
-    } catch (err) {
-      console.error("[PDF Generate] Error reading bond icon:", err);
-    }
-  }
+  // ── 3.6 Načítanie zachyteného canvasu z frontendu ─────────────────────────
+  let patternBase64 = body.patternBase64 ?? "";
   const vars: Record<string, string> = {
     brickName:      body.brickName ?? "",
     brickFormat:    body.brickFormat ?? "",
