@@ -119,6 +119,11 @@ export async function generatePdfBuffer(body: PdfGeneratePayload): Promise<Buffe
 
   // ── 3.6 Načítanie zachyteného canvasu z frontendu ─────────────────────────
   const patternBase64 = body.patternBase64 ?? "";
+  
+  // Zabezpečenie absolútnej URL pre logo
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.CONFIGURATOR_ORIGIN || "https://fabrick.sk";
+  const logoAbsoluteUrl = `${appUrl.replace(/\/$/, '')}/logo-fabrick.png`;
+
   const vars: Record<string, string> = {
     brickName:      body.brickName ?? "",
     brickFormat:    body.brickFormat ?? "",
@@ -140,7 +145,7 @@ export async function generatePdfBuffer(body: PdfGeneratePayload): Promise<Buffe
     date:           now,
     brickThumbImg:  brickThumbBase64,
     patternImg:     patternBase64,
-    fabrickLogoImg: body.fabrickLogoBase64 ?? "",
+    fabrickLogoImg: body.fabrickLogoBase64 || logoAbsoluteUrl,
   };
 
   // ── 4. Injekcia premenných do šablóny ─────────────────────────────────────
