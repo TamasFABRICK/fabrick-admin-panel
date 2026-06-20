@@ -110,6 +110,7 @@ export async function POST(request: NextRequest): Promise<Response> {
   const utmData      = raw.utmData as string | undefined;
   const brickImageUrl = raw.brickImageUrl as string | undefined;
   const leadType     = raw.leadType as string | undefined;
+  const downloadMode = raw.downloadMode as string | undefined;
 
   // ── Validation ───────────────────────────────────────────────
   if (!firstName || !firstName.trim()) {
@@ -233,7 +234,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         const adminEmails = eligibleUsers.map(u => u.email).filter(Boolean);
         const toEmails = adminEmails.length > 0 ? adminEmails : (process.env.ADMIN_EMAIL || 'admin@fabrick.sk');
 
-        const customerTemplateCode = lead.leadType === 'PDF_DOWNLOAD' ? 'PDF_DOWNLOAD_DEFAULT' : 'TEXTURE_DOWNLOAD_DEFAULT';
+        const customerTemplateCode = downloadMode === 'pdf' ? 'PDF_DOWNLOAD_DEFAULT' : 'TEXTURE_DOWNLOAD_DEFAULT';
 
         // Fetch templates
         const templates = await prisma.emailTemplate.findMany({
@@ -312,12 +313,12 @@ export async function POST(request: NextRequest): Promise<Response> {
           attachments: attachments.length > 0 ? attachments : undefined
         });
 
-        const customerSubject = parseTpl(customerTpl?.subject, lead.leadType === 'PDF_DOWNLOAD' ? 'FABRICK SK - Vaše PDF je pripravené' : 'FABRICK SK - Vaša 4K textúra je pripravená');
+        const customerSubject = parseTpl(customerTpl?.subject, downloadMode === 'pdf' ? 'FABRICK SK - Vaše PDF je pripravené' : 'FABRICK SK - Vaša 4K textúra je pripravená');
         const customerHtml = parseTpl(customerTpl?.bodyHtml, `
        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
          <p style="font-size: 14px; margin: 0;"><strong>Dobrý deň {{firstName}},</strong></p>
          <br/>
-         <p>dokonalý projekt začína správnym výberom. Ďakujeme Vám za ${lead.leadType === 'PDF_DOWNLOAD' ? 'stiahnutie PDF konfigurácie' : 'stiahnutie 4K textúry našich lícových tehál'}. Váš dokument bol úspešne vygenerovaný a nájdete ho v prehliadači.</p>
+         <p>dokonalý projekt začína správnym výberom. Ďakujeme Vám za ${downloadMode === 'pdf' ? 'stiahnutie PDF konfigurácie' : 'stiahnutie 4K textúry našich lícových tehál'}. Váš dokument bol úspešne vygenerovaný a nájdete ho v prehliadači.</p>
          <p><strong>Zhrnutie Vašej konfigurácie:</strong></p>
          {{configHtml}}
          <p style="font-size: 13px; color: #666; font-style: italic; margin: 5px 0 20px 0;">📎 Náhľad vybranej tehly nájdete v prílohe tohto e-mailu.</p>
