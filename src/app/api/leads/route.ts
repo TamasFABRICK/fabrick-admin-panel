@@ -9,6 +9,7 @@ import {
 } from "@/lib/api/response";
 import prisma from "@/lib/prisma";
 import { resend } from "@/lib/resend";
+import { generatePdfBuffer, PdfGeneratePayload } from "@/lib/pdfGenerator";
 
 // ─── CORS helpers ─────────────────────────────────────────────
 
@@ -327,12 +328,50 @@ export async function POST(request: NextRequest): Promise<Response> {
         `);
 
         // 2. Email pre Zákazníka
+        
+        let pdfBuffer: Buffer | undefined;
+        try {
+          const pdfPayload: PdfGeneratePayload = {
+            templateCode: 'CONFIGURATION_OVERVIEW',
+            brickName: config.brick?.name || config.brick || 'Nezvolená',
+            brickFormat: format,
+            manufacturer: config.brick?.manufacturer || '',
+            articleCode: config.brick?.articleCode || '',
+            dimensions: config.brick?.dimensions || '',
+            price: config.brick?.price || '',
+            patternName: mappedBondName,
+            jointColor: config.joint?.name || config.joint || config.jointColor || 'Nezvolená',
+            jointThickness: config.jointThickness ? `${config.jointThickness}` : '10',
+            jointProfile: capitalize(config.jointProfile || 'Zarovno'),
+            minOrderWarning: '',
+            patternBase64: config.patternBase64 || '',
+            brickThumbUrl: brickImageUrl,
+            firstName: lead.firstName || '',
+            lastName: lead.lastName || '',
+            email: lead.email || '',
+            phone: lead.phone || '',
+            company: lead.company || '',
+            city: lead.city || ''
+          };
+          pdfBuffer = await generatePdfBuffer(pdfPayload);
+        } catch (pdfErr) {
+          console.error("[leads] Nepodarilo sa vygenerovat PDF pre zakaznika:", pdfErr);
+        }
+
+        const customerAttachments = [...attachments];
+        if (pdfBuffer) {
+          customerAttachments.push({
+            filename: 'konfiguracia-fabrick.pdf',
+            content: pdfBuffer
+          });
+        }
+
         await resend.emails.send({
           from: 'Konfigurátor FABRICK <info@fabrick.sk>',
           to: lead.email,
           subject: customerSubject,
           html: customerHtml + '<div style="display: none; white-space: nowrap; font: 15px courier; line-height: 0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ID: ' + Date.now() + '</div>',
-          attachments: attachments.length > 0 ? attachments : undefined
+          attachments: customerAttachments.length > 0 ? customerAttachments : undefined
         });
       } catch (emailErr) {
         console.error("[leads] Nepodarilo sa odoslať notifikačné emaily:", emailErr);
