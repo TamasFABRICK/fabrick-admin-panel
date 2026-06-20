@@ -1,5 +1,6 @@
 import puppeteer from "puppeteer-core";
 import fs from "fs";
+import path from "path";
 import prisma from "@/lib/prisma";
 
 export interface PdfGeneratePayload {
@@ -120,9 +121,17 @@ export async function generatePdfBuffer(body: PdfGeneratePayload): Promise<Buffe
   // ── 3.6 Načítanie zachyteného canvasu z frontendu ─────────────────────────
   const patternBase64 = body.patternBase64 ?? "";
   
-  // Zabezpečenie absolútnej URL pre logo
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.CONFIGURATOR_ORIGIN || "https://fabrick.sk";
-  const logoAbsoluteUrl = `${appUrl.replace(/\/$/, '')}/logo-fabrick.png`;
+  // Zabezpečenie lokálneho načítania loga do Base64
+  let localLogoBase64 = "";
+  try {
+    const logoPath = path.join(process.cwd(), '..', 'brick-generator', 'public', 'logo-fabrick.png');
+    if (fs.existsSync(logoPath)) {
+      const logoBuffer = fs.readFileSync(logoPath);
+      localLogoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
+    }
+  } catch (error) {
+    console.error("[PDF Generate] Nepodarilo sa načítať lokálne logo:", error);
+  }
 
   const vars: Record<string, string> = {
     brickName:      body.brickName ?? "",
@@ -145,7 +154,7 @@ export async function generatePdfBuffer(body: PdfGeneratePayload): Promise<Buffe
     date:           now,
     brickThumbImg:  brickThumbBase64,
     patternImg:     patternBase64,
-    fabrickLogoImg: body.fabrickLogoBase64 || logoAbsoluteUrl,
+    fabrickLogoImg: body.fabrickLogoBase64 || localLogoBase64,
   };
 
   // ── 4. Injekcia premenných do šablóny ─────────────────────────────────────
