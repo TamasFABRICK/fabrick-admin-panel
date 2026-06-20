@@ -21,6 +21,7 @@ export interface PdfGeneratePayload {
   jointColor?: string;
   jointThickness?: string;
   jointProfile?: string;
+  minOrderWarning?: string;
   /** Base64 zachytené z frontend 3D canvasu */
   patternBase64?: string;
   /** Cesta k miniatúre tehly */
@@ -164,6 +165,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     jointColor:     body.jointColor ?? "",
     jointThickness: body.jointThickness ?? "",
     jointProfile:   body.jointProfile ?? "",
+    minOrderWarning: body.minOrderWarning ?? "",
     firstName:      body.firstName ?? "",
     lastName:       body.lastName ?? "",
     email:          body.email ?? "",
