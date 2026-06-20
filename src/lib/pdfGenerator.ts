@@ -184,6 +184,20 @@ export async function generatePdfBuffer(body: PdfGeneratePayload): Promise<Buffe
 
     // Nastavíme HTML content priamo (nie navigate na URL), zdroj: "about:blank"
     await page.setContent(fullHtml, { waitUntil: "load" });
+    
+    // Vyčkáme na dotiahnutie všetkých obrázkov a assetov
+    await page.evaluate(async () => {
+      const selectors = Array.from(document.querySelectorAll("img"));
+      await Promise.all(
+        selectors.map((img) => {
+          if (img.complete) return Promise.resolve();
+          return new Promise((resolve) => {
+            img.addEventListener("load", resolve);
+            img.addEventListener("error", resolve);
+          });
+        })
+      );
+    });
 
     // Generovanie PDF v pamäti – žiadne zapisovanie na disk
     const pdfRaw = await page.pdf({
