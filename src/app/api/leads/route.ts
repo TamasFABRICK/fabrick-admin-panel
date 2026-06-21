@@ -111,6 +111,7 @@ export async function POST(request: NextRequest): Promise<Response> {
   const brickImageUrl = raw.brickImageUrl as string | undefined;
   const leadType     = raw.leadType as string | undefined;
   const downloadMode = raw.downloadMode as string | undefined;
+  const attachmentName = raw.attachmentName as string | undefined;
 
   // ── Validation ───────────────────────────────────────────────
   if (!firstName || !firstName.trim()) {
@@ -362,7 +363,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         const customerAttachments = [...attachments];
         if (pdfBuffer) {
           customerAttachments.push({
-            filename: 'konfiguracia-fabrick.pdf',
+            filename: attachmentName || 'konfiguracia-fabrick.pdf',
             content: pdfBuffer
           });
         }
